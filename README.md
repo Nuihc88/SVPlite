@@ -8,7 +8,7 @@ Project's Priorities are as follows:
 2. Quality - Balancing between artefact reduction and playback smoothness, without noticeable compromises in either.
 3. Speed   - Increasing throughput to avoid underruns by making best possible use of available buffering techniques.
 
-To use, just copy and load the provided .avs scripts into your favourite AviSynth compatible player along with up-to-date versions of AviSynth+ (v3.5.2 - r3218 or newer) and the appropriate SVPflow libraries (v4.3.0.160 - 32bit or v4.3.0.161 - 64bit are recommended).
+To use, just copy and load the provided .avs scripts into your favourite AviSynth compatible player along with up-to-date versions of AviSynth+ (v3.5.2 - r3218 or newer) and the appropriate SVPflow libraries (v4.3.0.160 32bit or v4.3.0.161 64bit are recommended).
 
 Default file locations should be something like:
 AviSynth.dll > 'YourPlayerDirectory'/
