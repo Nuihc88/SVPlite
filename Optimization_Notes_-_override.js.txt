@@ -1,8 +1,13 @@
 /********************************************************************
 Nuihc88's configuration notes, based on override.js - from SVP 3.1.7a
 ********************************************************************/
+// Don't take what i write in this file as absolute truth; effects of most settings are context dependent and i've only tested a small subset.
+// Anything that works well for anime tends to work even better with live footage, but not everything that works well with live footage will
+// work well with anime, thus most settings were first optimized for anime, then fine tuned to work well with animated, CGI and live footage.
+//
 // Line comments usually follow this format -> 'option name' = 'tweaked value;' 'other values worth remembering' // 'Comments here.'
-// when at least double checked, i remove '//' before 'option name'
+// when at least double checked and/or considered universally good, i remove '//' before 'option name'.
+//
 
 /***** SVSuper options *****/
 
@@ -15,29 +20,35 @@ Nuihc88's configuration notes, based on override.js - from SVP 3.1.7a
 
 /***** SVAnalyse options *****/
 
-//analyse.vectors			= 3;
+//analyse.vectors			= 3;		// Only change if you want to use the now obsolete algo 2 and want a small speed boost.
   analyse.block.w			= 32;		// Keeping this high gives less 'windowblinds' artefacts than lower values.
-  analyse.block.h			= 16;	//32;	// Halfing this can cause or prevent artefacts, but makes camera movement more pleasing.
-  analyse.block.overlap			= 2;	//0;	// Generally 2 gives least artefacts, but is much slower. 1 usually has worst output.
+  analyse.block.h			= 16;	//32;	// Depending on block size and penalty values, halfing this can either cause or prevent 	
+
+							// artefacts, but makes camera movement much more visually pleasing.
+  analyse.block.overlap			= 2;	//0;	// Generally 2 gives least artefacts, but is much slower.
+							// Usually 1 has the worst quality with large block sizes.
 
   analyse.main.levels			= 3; 	//4;0;5;// 0 uses all; totals: -4 coarse? & 6 fine? - 3 & -3 Give least artefacts with anime.
   analyse.main.search.type		= 4;	//2;	// Lower values speed things up. Could be lowered to 2 if using refinement with type 4.
-							// 3 is never worth it, introduces artefacts while panning with anime.
-  analyse.main.search.distance		= -3;		// More increases windowblinds and soap bubble artefacts - Generally higher is better.
+							// Type 4 is good for fine detail; type 3 is never worth it as it introduces artefacts in
+							// Anime while panning, also creates jagged edges in high contrast areas with all content.
+  analyse.main.search.distance		= -3;		// More increases all sorts of artefacts, but generally higher vales give more smoothness.
   analyse.main.search.sort		= true;		// Can increase quality in exchange for CPU usage jumps; lower perf. cost than trymany.
-  analyse.main.search.satd		= false;	// Speeds things up. Turning this on can make things very slow.
-  analyse.main.search.width		= 960;		// Speeds things up by limiting search distance. Lowering reduces problems with panning.
-							// There's no benefit to using values higher than half of the horizontal resolution.
+  analyse.main.search.satd		= false;	// Speeds things up. Turning this on can slow things down a bit; no effect on latency.
   analyse.main.search.coarse.type	= 2;		// Lower values speed things up. For intermediate steps 4 seems to be a Placebo setting.
+							// type 2 produces rounder output which tends to look more natural with large distances.
   analyse.main.search.coarse.distance	= -9;		// Needs a higher value for FullHD Anime. GUI:{-6 to -14} //0 = -10 default
   analyse.main.search.coarse.satd	= false;//true;	// Speeds things up. Turning it back on improves vector quality on flicker and fades.
   analyse.main.search.coarse.trymany	= true;		// Can increase quality in exchange for CPU usage jumps; higher cost and payoff than sort.
-  analyse.main.search.coarse.width	= 960;		// Speeds things up a bit by limiting search distance. Can reduce pan stutter.
+  analyse.main.search.coarse.width	= 961;		// Speeds things up a bit by limiting search distance. Can signicantly reduce pan stutter.
+	// Using coarse distance -9 & distance -3:	// Even as low as distance*2+1 produces decent output, but things start swirling around.
+	// Using coarse distance -51 & distance -21:	// No differences in output detected with values higher than 'horizontal resolution'/2+1.
   analyse.main.search.coarse.bad.sad	= 2000;		// This is The Wide Search, 1000 is average, 2000 is Strongest.
   analyse.main.search.coarse.bad.range	= -21;	//-24;	// For anime 0, -1, -3 is recommended. neg. is Exhaustive, very little difference to -24
-							// Use 0 to bypass for lower latency, -1 has marginally lower cpu usage?, eats more RAM. 
+							// Use 0 to bypass for lower latency, -1 has marginally lower cpu usage?, eats more RAM.
+							// In my tests, the effects of this setting are generally neglible, within placebo range. 
 
-// For some reason prime number sized search areas tend to give notably better output than their immediate neigbours.
+// For some reason prime number sized search areas tend to give notably better output than their immediate neigbours. Use - values for speed boost.
 // Best of the Resulting derivatives appear to all be divisible by 3; Derived using Formula: '(Prime# - 1) / 2' : 3++ 6- 9+ 15+ 21- 39 51++
 // 2nd of TwinPrimes:+	  5   7         13       19             31                   43                   61       73          103
 // Derived distances: 2 3   6   9          15       21       30          36                   51
@@ -51,20 +62,23 @@ Nuihc88's configuration notes, based on override.js - from SVP 3.1.7a
 // Derived distances:   3         11       15          23             35       39             51
 //	12n+7 Primes:	      7                  19          31                      43                      67       79       103		 
 // Derived distances:	3       9          15       21             33          39             51
-// Using fine to coarse search distance ratio of between 1:3 & 1:2 seems to produce most consistent quality. Use -negative values for speed boost.
+// Using fine to coarse search distance ratio of between 1:3 & 1:2 seems to produce most consistent quality; seems about as important as distance.
+// I recommend using: 9 with 21, 6 with 15, 3 with 9... 15 with 39 & 21 with 51, give weird artefacts at times.
 
-  analyse.main.penalty.lambda		= 12.0;	//10.0;	// Higher increases Vector Coherence, but reduces search radius slightly.	//11.5-14
-  analyse.main.penalty.plevel		= 1.371;//1.5;	// Lower reduces Artefacts, Higher Improves Fluency.//1.3616-1.3668->Sweet Spot<-1.5693
-							// Promising ranges: 1.3745-1.3766 // 1.3773-1.3794 // 1.3801-1.3811 // Scouted to 1.3901
-//analyse.main.penalty.lsad		= 8000;		//
-  analyse.main.penalty.pnew		= 44;		// 43-44, not sure which is better. Needs more testing.						
-  analyse.main.penalty.pglobal		= 104;		// 56-104 (with prev=0) OR 104-125 (with prev=3), so 104 is sweet spot.
-  analyse.main.penalty.pzero		= 111;	//100;	// More Increases Fluency, but sometimes has a performance cost. Anime->256, Live->0-64.
-							// Confirmed that the range is 0 - 256. Not really sure yet how to optimize it.
+  analyse.main.penalty.lambda		= 3.3//12.23;	// > increases Vector Coherence. < increases smoothness quite significantly.
+							// Not yet sure how to optimize it. < seems less unpredictable, but lowers effective range.
+  analyse.main.penalty.plevel		= 1.25//1.371;	// < reduces Artefacts, > Improves Fluency. Has quite a few interconnected trade-offs.
+							// Seems to affect every other penalty along with lambda, which all affect search behavour.
+//analyse.main.penalty.lsad		= 8000;		// Is tied to block size, but beyond that i haven't found any consistency in it's behavior.
+  analyse.main.penalty.pnew		= 44;		// 44 gives the most pleasing results vast majority of the time.	//43-44
+  analyse.main.penalty.pglobal		= 104;		// 56-104 (with prev=0) OR 104-125 (with prev=3), so 104 is the sweet spot.
+  analyse.main.penalty.pzero		= 93;	//100;	// More Increases Fluency, but sometimes has a performance cost. Anime->224-256;Live->0-64. 
+							// Confirmed that the range is 0 - 256. Not yet sure how to balance optimize it.
+							// Improved Anime frame quality at: 47->56->58->69->85->99->104->170->224->240
   analyse.main.penalty.pnbour		= 74;	//50;	// More reduces artefacts in surrounding blocks, especially with large blocksizes// 72-74
 							// Increasing this is good for anime, with live content it's barely noticeable.
-//analyse.main.penalty.prev		= 3;	// 0;	// 1-3 // Needs more testing. Decimals have no effect. Negative values have nasty output.
-
+//analyse.main.penalty.prev		= -1;	//-3;0;3// -3 to 3 // Decimals have no effect; Very context dependent; effects seem fairly random.
+							// In theory, negative values should give more realistic movement; Very difficult to test.
 //  analyse.refine[0]          		= {thsad:65000,search:{distance:-4,type:4,satd:true},penalty:{lambda:12.0}};
 //  analyse.refine[1]          		= {thsad:4000,search:{distance:-1,type:4,satd:true},penalty:{lambda:12.0}};
 	//analyse.refine[0]        		= {thsad:1000,search:{type:4, distance:2, satd:false}};
@@ -72,12 +86,12 @@ Nuihc88's configuration notes, based on override.js - from SVP 3.1.7a
 
 //analyse.refine[0]			= {search:{distance:-1,type:4}};// Ok, but causes occasional stuttering, retest this later.
 //analyse.refine[0].thsad		= 1000;	// 250-4000-65000	// higher threshold requires less processing. 65000 = global refinement
-//analyse.refine[0].search.type		= 4;		// Lower values speed things up.
-//analyse.refine[0].search.distance	= -1;		// Should speed things up slightly.
+//analyse.refine[0].search.type		= 4;		// Lower values speed things up. Should always be 4 for for final refinement stage?
+//analyse.refine[0].search.distance	= -1;		// Using negative values should speed things up slightly, but then may not improve quality.
 //analyse.refine[0].search.satd		= false;
-//analyse.refine[0].penalty.lambda	= 12.0;	//10.0;
+//analyse.refine[0].penalty.lambda	= 3.3;	//12.0;//10.0;
 //analyse.refine[0].penalty.lsad	= 8000;
-//analyse.refine[0].penalty.pnew	= 50;
+//analyse.refine[0].penalty.pnew	= 44;	//50;
 
 /***** SVSmoothFps options *****/
 
@@ -87,21 +101,32 @@ Nuihc88's configuration notes, based on override.js - from SVP 3.1.7a
 //smooth.block				= false;
 //smooth.cubic				= 0;	// 1;	// Even more speedup, but in exchange for more jagged edge lines; probably never worth it.
 smooth.linear				= false;//true;	// Significant speedup for subjective visual cost. It just adjusts gamma/luminosity.
+							// It does however help significantly with artefact masking in live footage.
 
 //smooth.mask.cover			= 88;	//99;	// Increasing this reduces artefacts at the cost of some smoothness. //Usable at 75-100
-					//^(75+100)/2=r^// <75 tends to be barely noticeable, stopping at 99 lessens issues with ext. sharpening.
-//smooth.mask.area			= 10;//70;//0;	// Artifact Masking is never worth it; use 'smooth.algo' '21' or '23' instead.
-//smooth.mask.area_sharp		= 1.618	//1.0;	// Recommendations from the internet 1.2-1.65
+					//^(75+100)/2=r^// <50 tends to be barely noticeable, stopping at 99 lessens issues with ext. sharpening.
+//smooth.mask.area			= 10;//70;//0;	// Artifact Masking seems never worth it; use 'smooth.algo' '21' or '23' instead.
+//smooth.mask.area_sharp		= 1.618;	//1.0;	// Recommendations from the internet 1.2-1.65; Phi to phi is a good range.
 
 //smooth.scene.mode			= 0;	//3;	// Use 3=Adaptive or 0=Uniform Frames interpolation mode; don't bother with the rest.
 //smooth.scene.force13			= true;
-//smooth.scene.luma			= 1.5;		// Should be lowered for Anime?... Test later.
+//smooth.scene.luma			= 1;		// Should be lowered for Anime?... Yep... Test more later.
 //smooth.scene.blend			= false;
-  smooth.scene.limits.m1		= 1800;		// Random Tweaks from the internet.	These Tweaks Improve Fluency
-  smooth.scene.limits.m2		= 3600;		// Random Tweaks from the internet.	Scene limits only apply to...
-  smooth.scene.limits.scene		= 5200;		// Random Tweaks from the internet.	  ...'3' a.k.a. Adaptive...
-  smooth.scene.limits.zero		= 100;		// Random Tweaks from the internet.	...frames interpolation mode.
-  smooth.scene.limits.blocks		= 50;		// Scene change detection threshold, 20-50 %. Not yet tested or optimized.
+  smooth.scene.limits.m1		= 1800;		// Random Tweaks from the internet. These 'm1' & 'm2' tweaks are meant to improve fluency, 
+  smooth.scene.limits.m2		= 3600;		// .....		  but only apply to '3' a.k.a. Adaptive frames interpolation mode.
+  smooth.scene.limits.scene		= 2220;	//2600;	// Triangulation approach points here:  2220 -> SweetSpot <- 2795	-	Good Pairs:
+							// luma: 1.25 & zero:100 -> scene:2795,blocks:42 scene:2704,blocks:43 scene:2607,blocks:44
+							// luma: 1    & zero: 4  -> scene:2398,blocks:40 scene:2307,blocks:41 scene:2220,blocks:42
+  smooth.scene.limits.zero		= 4;	//1-100	// With Anime, lowering it helps with smoothing of moving or rotating foreground objects.
+							// Best to avoid zeroing it out, but using modern codecs, any value >0 should work fine.
+  smooth.scene.limits.blocks		= 42;		// Scene change detection threshold. Compared against luma thresholds: > .scene & !< .zero
+					// ^(33+51)/2=^	// For Anime 40-44 works well with most values, also gives great results with live footage.
+					// Doesn't use	// Triangulation method indicates that 42 & 43 give far more flexibility with the .scene-	
+
+					// decimals	// threshold than larger values and lower values start having trouble with blurry frames.
+	// Documentation - Only blocks reaching over:( ("block SAD"/"block average luma") > "limits.zero") threshold, qualify for triggering scene
+	//  Simplified	 - change when blocks with:( ("block SAD"/"block average luma") > "limits.scene") outnumber the "limits.blocks" percentage?
+
 
 //smooth.light.aspect			= 0.0;
 //smooth.light.sar			= 1.0;
