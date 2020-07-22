@@ -14,6 +14,6 @@ vectors=SVAnalyse(super, analyse_params, src=last)
 
 SVSmoothFps(last, super, vectors, smoothfps_params, mt=frames) # Sample scripts use 'threads' here, but using 'frames' seems to refill the buffer much quicker, i didn't notice any downsides.
 
-OnCPU(frames)
+OnCPU(frames) # Older versions of AviSynth+ don't support this, but it makes quite a difference. 
 
 Prefetch(1,frames) # Higher thread count increases latency, but Prefetch to buffer size prevents Sync-drifting & frame drops with neglible overhead.
