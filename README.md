@@ -14,9 +14,10 @@ Default file locations should be something like:
 
 AviSynth.dll > 'YourPlayerDirectory'/
 
-SVPlite Scripts > 'YourPlayerDirectory'/AviSynth/
+SVPlite Scripts > 'YourPlayerDirectory'/AviSynth/ *
 
 SVPflow > 'YourPlayerDirectory'/AviSynth/PlugIns/
 
 For best performance i recommend using the latest 'PotPlayer' (PotPlayerMini.exe or PotPlayerMini64.exe) with 'ffdshow raw video filter' instead of internal transform filters, along with 'File Source (Async.)' for file buffering, 'LAV Filters' for codecs, 'AviSynth+' as frame server & 'MadVR' as Video Renderer. I'll probably add more detailed configuration instructions and list out tweaks to apply, later.
 
+*Note that the two .avsi & files must always be included; so if you run into any problems loading them, try copy-pasting constents of the .avsi files over the corresponding Import() lines in your script.
