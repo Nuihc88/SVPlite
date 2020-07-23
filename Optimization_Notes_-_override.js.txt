@@ -121,8 +121,7 @@ smooth.linear				= false;//true;	// Significant speedup for subjective visual co
 							// Best to avoid zeroing it out, but using modern codecs, any value >0 should work fine.
   smooth.scene.limits.blocks		= 42;		// Scene change detection threshold. Compared against luma thresholds: > .scene & !< .zero
 					// ^(33+51)/2=^	// For Anime 40-44 works well with most values, also gives great results with live footage.
-					// Doesn't use	// Triangulation method indicates that 42 & 43 give far more flexibility with the .scene-	
-
+					// Doesn't use	// Triangulation method indicates that 42 & 43 give far more flexibility with the .scene-
 					// decimals	// threshold than larger values and lower values start having trouble with blurry frames.
 	// Documentation - Only blocks reaching over:( ("block SAD"/"block average luma") > "limits.zero") threshold, qualify for triggering scene
 	//  Simplified	 - change when blocks with:( ("block SAD"/"block average luma") > "limits.scene") outnumber the "limits.blocks" percentage?
