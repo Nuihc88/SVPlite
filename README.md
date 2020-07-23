@@ -5,7 +5,7 @@ Project Goal: Making SVPflow libraries more usable and accessible on older compu
 
 Project's Priorities are as follows:
 1. Latency - Minimizing buffer refill delays and making frame drop and seek recovery as fast and smooth as possible.
-2. Quality - Balancing between artefact reduction and playback smoothness, with no noticeable compromises in either.
+2. Quality - Balancing artefact reduction with playback smoothness, without any noticeable compromises in either.
 3. Speed   - Increasing throughput to avoid underruns by making best possible use of available buffering techniques.
 
 To use, just copy and load the provided .avs scripts into your favourite AviSynth compatible player along with up-to-date versions of AviSynth+ (v3.5.2 - r3218 or newer) and SVPflow libraries (v4.3.0.160 32bit or v4.3.0.161 64bit are recommended).
