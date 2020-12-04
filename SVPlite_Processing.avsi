@@ -1,5 +1,7 @@
 ##	SVPlite - Employ Generic Cache/Buffer Management Strategies For Specific Usage-Scenarios.	##
 
+Prefetch(1,threads)
+if (!IsYV12) {return ConvertToYV12()}
 #clip=last # Should be unnecessary, but try uncommenting this if AviSynth+ is throwing an error.
 #Prefetch(1,Ceil(frames/8)) # Additional instances increase throughput at a slight latency cost.
 
