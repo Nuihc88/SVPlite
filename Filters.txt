@@ -1,5 +1,5 @@
-Below are links to filter versions that i'm currently using with SVPlite scripts, but due to legal reasons can't prepackage with SVPlite...
-Most of the time, your choice of version won't matter much, but you could get slightly better performance using the ones specified below:
+Below are links to filter versions i am currently using with SVPlite scripts, but due to legal reasons can't pre-package with SVPlite...
+Most of the time your choice of version won't matter much, but you could get slightly better performance using the ones specified below:
 
 AviSynth+ r3218 v3.5.2 2020.04.28 test build:
 Original Link: https://drive.google.com/file/d/1EY1wgsh7pQD7kqj_2suD--nSj12hILX4/view
