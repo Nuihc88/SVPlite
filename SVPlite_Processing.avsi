@@ -1,7 +1,7 @@
 ##	SVPlite - Employ Generic Cache/Buffer Management Strategies For Specific Usage-Scenarios.	##
 
 Prefetch(1,threads)
-if (!IsYV12) {return ConvertToYV12()}
+if (!IsYV12) {last.ConvertBits(bits=8).ConvertToYV12()} # This automatically converts incompatible input formats, but might add a bit of overhead and some color information could be lost.
 #clip=last # Should be unnecessary, but try uncommenting this if AviSynth+ is throwing an error.
 #Prefetch(1,Ceil(frames/8)) # Additional instances increase throughput at a slight latency cost.
 
