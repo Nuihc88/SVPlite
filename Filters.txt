@@ -1,0 +1,34 @@
+Below are links to filter versions that i'm currently using with SVPlite scripts...
+Most of the time, your choice of version won't matter much, but you could get slightly better performance using the ones specified below:
+
+AviSynth+ r3218 v3.5.2 2020.04.28 test build.
+Original Link: https://drive.google.com/file/d/1EY1wgsh7pQD7kqj_2suD--nSj12hILX4/view
+Mirrored Link: http://k007.kiwi6.com/hotlink/o9ej7ll4sb/AviSynthPlus_r3218_v3.5.2_test_20200428_noarr.7z
+
+
+SVPflow1.dll is from:
+32bit: https://web.archive.org/web/*/https://www.svp-team.com/files/repo/full/core.flow32/4.5.0.202plugins.7z
+64bit: https://web.archive.org/web/*/https://www.svp-team.com/files/repo/full/core.flow64/4.5.0.206plugins64.7z
+
+SVPflow2.dll is from:
+32bit:	https://web.archive.org/web/*/https://www.svp-team.com/files/repo/full/core.flow32/4.3.0.160plugins.7z
+64bit:	https://web.archive.org/web/*/https://www.svp-team.com/files/repo/full/core.flow64/4.3.0.161plugins64.7z
+
+Note: Newer SVPflow2.dll versions require official SVP to be running in the background, so if portability is a factor you'll need to use these older versions.
+
+
+CrendKing's 'AviSynth Filter' DirectShow-filter:
+https://github.com/CrendKing/avisynth_filter/releases
+
+
+LAV Filters (nightly builds):
+https://files.1f0.de/lavf/nightly/
+
+
+MadVR Video Renderer (newest version): 
+http://madshi.net/madVR.zip
+
+
+Sanear Audio Renderer (Unofficial build):
+Original Link: https://www.dropbox.com/s/7be96xtdumbd9l9/sanear-bin-master-f7612c7-20160517.zip?dl=0
+Mirrored Link: http://k007.kiwi6.com/hotlink/vs6bh1pn6f/sanear-bin-master-f7612c7-20160517.zip
