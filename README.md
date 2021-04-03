@@ -18,6 +18,6 @@ SVPlite Scripts > 'YourPlayerDirectory'/AviSynth/ *
 
 SVPflow > 'YourPlayerDirectory'/AviSynth/PlugIns/
 
-For best performance i recommend using the latest 'PotPlayer' (PotPlayerMini.exe or PotPlayerMini64.exe) with CrendKing's 'AviSynth Filter' instead of internal transform filters, along with 'File Source (Async.)' for file-read buffering, 'LAV Filters' for codecs, 'AviSynth+' as frame server, 'MadVR' as Video Renderer & 'Sanear' as Audio Renderer. I'll probably add more detailed configuration instructions and list out tweaks to apply, later...
+For best performance i recommend using the latest 'PotPlayer' (PotPlayerMini.exe or PotPlayerMini64.exe) with CrendKing's 'AviSynth Filter' instead of internal transform filters, along with 'File Source (Async.)' for file-read buffering, 'LAV Filters' for codecs, 'AviSynth+' as frame server, 'MadVR' as Video Renderer & 'Sanear' as Audio Renderer. Check the Filters.txt file for links my preferred filter versions. I'll probably add more detailed configuration instructions and list out tweaks to apply, later...
 
 *Note that the two .avsi files must always be included; so if you run into any problems loading them, try copy-pasting contents of the .avsi files over the corresponding Import() lines in your chosen script.
