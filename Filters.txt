@@ -27,6 +27,6 @@ MadVR Video Renderer (newest stable version): http://madshi.net/madVR.zip
 
 
 Sanear Audio Renderer (My Unofficial 32bit & 64bit builds):
-Normal Builds: http://k007.kiwi6.com/hotlink/lltm5i4iyw/sanear-0.3.1-bin.zip
-Debug Builds: http://k007.kiwi6.com/hotlink/wxginwcqf1/sanear-0.3.1-debug.7z
-Source Code: http://k007.kiwi6.com/hotlink/v6fwzgqpea/sanear-0.3.1-src.7z
+Normal Builds: ttp://k007.kiwi6.com/hotlink/t4atv85b6r/sanear-0.3.1.1-bin.zip
+Debug Builds: http://k007.kiwi6.com/hotlink/1fwf3fghau/sanear-0.3.1.1-debug.7z
+Source Code: http://k007.kiwi6.com/hotlink/82ze28dexz/sanear-0.3.1.1-src.7z
