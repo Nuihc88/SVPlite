@@ -25,8 +25,7 @@ LAV Filters (nightly builds): https://files.1f0.de/lavf/nightly/
 
 MadVR Video Renderer (newest stable version): http://madshi.net/madVR.zip
 
-
 Sanear Audio Renderer (My Unofficial 32bit & 64bit builds):
-Normal Builds: ttp://k007.kiwi6.com/hotlink/t4atv85b6r/sanear-0.3.1.1-bin.zip
-Debug Builds: http://k007.kiwi6.com/hotlink/1fwf3fghau/sanear-0.3.1.1-debug.7z
-Source Code: http://k007.kiwi6.com/hotlink/82ze28dexz/sanear-0.3.1.1-src.7z
+Normal Builds: http://k007.kiwi6.com/hotlink/fbb21v9azh/sanear-0.3.1.2-bin.zip
+Debug Builds: http://k007.kiwi6.com/hotlink/1gprsvbowq/sanear-0.3.1.2-debug.7z
+Source Code: http://k007.kiwi6.com/hotlink/xjqf6ccon1/sanear-0.3.1.2-src.7z
