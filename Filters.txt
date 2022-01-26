@@ -1,19 +1,21 @@
-Below are links to filter versions i am currently using with SVPlite scripts, but due to legal reasons can't pre-package with SVPlite...
-Most of the time your choice of version won't matter much, but you could get slightly better performance using the ones specified below:
+Below are links to filter versions i use myself and can recommend for use with SVPlite scripts, but due to legal reasons can't pre-package with SVPlite...
+Most of the time your choice of version won't matter much, but you could get slightly better performance or less overhead using the ones specified below:
 
-AviSynth+ r3218 v3.5.2 2020.04.28 test build:
+AviSynth+ r3600 v3.7.2 2022.01.13 test build:                           (Least overhead and latency)
+Original Link: https://drive.google.com/uc?export=download&id=1A2Jb2OSYzGI0tBFEmvlT0RxxLwVoCiP_
+Mirrored Link: http://k007.kiwi6.com/hotlink/smndk9flbl/AviSynthPlus_r3600_v3.7.2_test1_20220113.7z
+OR
+AviSynth+ r3218 v3.5.2 2020.04.28 test build:              (Least likely to return incorrect frames)
 Original Link: https://drive.google.com/file/d/1EY1wgsh7pQD7kqj_2suD--nSj12hILX4/view
 Mirrored Link: http://k007.kiwi6.com/hotlink/o9ej7ll4sb/AviSynthPlus_r3218_v3.5.2_test_20200428_noarr.7z
-
+ 
 
 SVPflow1.dll is from:
 32bit: https://web.archive.org/web/*/https://www.svp-team.com/files/repo/full/core.flow32/4.5.0.202plugins.7z
 64bit: https://web.archive.org/web/*/https://www.svp-team.com/files/repo/full/core.flow64/4.5.0.206plugins64.7z
-
 SVPflow2.dll is from:
 32bit:	https://web.archive.org/web/*/https://www.svp-team.com/files/repo/full/core.flow32/4.3.0.160plugins.7z
 64bit:	https://web.archive.org/web/*/https://www.svp-team.com/files/repo/full/core.flow64/4.3.0.161plugins64.7z
-
 Note: Newer SVPflow2.dll versions require official SVP to be running in the background, so if portability is a factor you'll need to use these older versions.
 
 
@@ -25,7 +27,15 @@ LAV Filters (nightly builds): https://files.1f0.de/lavf/nightly/
 
 MadVR Video Renderer (newest stable version): http://madshi.net/madVR.zip
 
-Sanear Audio Renderer (My Unofficial 32bit & 64bit builds):
-Normal Builds: http://k007.kiwi6.com/hotlink/fbb21v9azh/sanear-0.3.1.2-bin.zip
-Debug Builds: http://k007.kiwi6.com/hotlink/1gprsvbowq/sanear-0.3.1.2-debug.7z
-Source Code: http://k007.kiwi6.com/hotlink/xjqf6ccon1/sanear-0.3.1.2-src.7z
+
+Sanear Audio Renderer (My Unofficial Updated & Optimized 32bit & 64bit builds):
+Performance Optimized Builds...
+C++17 Stable: http://k007.kiwi6.com/hotlink/yijz3fqxfh/sanear-0.3.1.3-bin-Opt_C_17.zip 
+C++20 Experimental: http://k007.kiwi6.com/hotlink/hin08beivq/sanear-0.3.1.3-bin-Opt_C_20.zip
+Debug builds...
+C++17 Stable: http://k007.kiwi6.com/hotlink/jeoxgyn7so/sanear-0.3.1.3-debug-Opt_C_17.7z
+C++20 Experimental: http://k007.kiwi6.com/hotlink/crxdltrn6l/sanear-0.3.1.3-debug-Opt_C_20.7z
+Compile Ready Source Codes for...
+C++17 Compiles: http://k007.kiwi6.com/hotlink/8op5fuut6p/sanear-0.3.1.3-src-Opt_C_17.7z
+C++20 Compiles: http://k007.kiwi6.com/hotlink/kwcgy6iwbi/sanear-0.3.1.3-src-Opt_C_20.7z
+Note: C++17 builds are more standards compliant and thus possibly more stable or reliable; C++20 builds required a compiler workaround, but might be better optimized.
