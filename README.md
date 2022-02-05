@@ -21,9 +21,9 @@ For best performance i recommend using the latest 'PotPlayer' (PotPlayerMini.exe
 
 
 **Explanation about Script Versions:**
-* Animation-Presets: Are for use with Anime & Cartoon sources.
-* Mixed-Presets: Are for contents that make heavy use of CGI, VFX, 3D, etc.
-* Live-Presets: Are for footage that's primarily live-action footage.
+* Animation-Presets: Are for use with Anime & Cartoon contents.
+* Mixed-Presets: Are for content that makes heavy use of CGI, VFX, 3D, etc.
+* Live-Presets: Are for content that consists primarily of live-action footage.
 * Heavy-Presets: Are for general use with decent hardware and older file formats.
 * Medium-Presets: Are for general use with older hardware and more modern file formats.
 * Light-Presets: Are for general use with ancient hardware and most demanding file formats.
