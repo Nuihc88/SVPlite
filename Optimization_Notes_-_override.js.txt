@@ -20,7 +20,7 @@ Nuihc88's configuration notes, based on override.js - from SVP 3.1.7a
 
 /***** SVAnalyse options *****/
 
-//analyse.vectors			= 3;		// Only change if you want to use algo 2 and want a very small speed boost.
+//analyse.vectors			= 3;		// Only change if you want to use the obsolete algo 1 and want a small speed boost.
   analyse.block.w			= 32;		// Keeping this high gives less 'windowblinds' artefacts than lower values.
   analyse.block.h			= 16;	//32;	// Depending on block size and penalty values, halfing this can either cause or prevent 	
 							// artefacts, but makes camera movement in live footage much more visually pleasing.
@@ -30,12 +30,17 @@ Nuihc88's configuration notes, based on override.js - from SVP 3.1.7a
   analyse.main.search.type		= 4;	//2;	// Lower values speed things up. Could be lowered to 2 if using refinement with type 4.
 							// Type 4 is good for fine detail; type 3 is never worth it as it introduces artefacts in
 							// Anime while panning, also creates jagged edges in high contrast areas with all content.
-  analyse.main.search.distance		= -3;		// More increases all sorts of artefacts, but generally higher vales give more smoothness.
+  analyse.main.search.distance		= -3;		// More increases all sorts of artefacts, but generally higher values give more smoothness.
+  							// > Search distance at finer levels can be very CPU intensive & won't do much for anime.
+							// Increasing primarily benefits fine detail when also using lots of fine main.levels.
   analyse.main.search.sort		= true;		// Can increase quality in exchange for CPU usage jumps; lower perf. cost than trymany.
   analyse.main.search.satd		= false;	// Speeds things up. Turning this on can slow things down a bit; no effect on latency.
   analyse.main.search.coarse.type	= 2;		// Lower values speed things up. For intermediate steps 4 seems to be a Placebo setting.
 							// type 2 produces rounder output which tends to look more natural with large distances.
-  analyse.main.search.coarse.distance	= -9;		// Needs a higher value for FullHD Anime. GUI:{-6 to -14} //0 = -10 default
+  analyse.main.search.coarse.distance	= -9;		// Higher values are needed for FullHD Anime. GUI range:{-6 to -14} //0 = -10 default.
+  							// Needs to be adjusted proportionally to main.levels count; For large plains in anime,
+							// fewer fine Levels, search Type 2 & > Distance combo greatly increases speed while also
+							// having a positive effect on smoothness at the cost of more distortion in still frames.
   analyse.main.search.coarse.satd	= false;//true;	// Speeds things up. Turning it back on improves vector quality on flicker and fades.
   analyse.main.search.coarse.trymany	= true;		// Can increase quality in exchange for CPU usage jumps; higher cost and payoff than sort.
   analyse.main.search.coarse.width	= 961;		// Speeds things up a bit by limiting search distance. Can signicantly reduce pan stutter.
@@ -92,24 +97,22 @@ Nuihc88's configuration notes, based on override.js - from SVP 3.1.7a
 
 /***** SVSmoothFps options *****/
 
-//smooth.rate.num			= 2;		// Multiplication by integers is always way faster, but sometimes causes a slight flicker.
-//smooth.rate.den			= 1;
+//smooth.rate.num			= 2;		// Multiplication by integers is always way faster, but can cause slight flickering.
+//smooth.rate.den			= 1;		// 
 //smooth.algo				= 23;	//13;21;// Good artefact masking with little CPU, 21&23 add latency. Live->13/23;Anime->2;All->21.
 //smooth.block				= false;
 //smooth.cubic				= 0;	// 1;	// Even more speedup, but in exchange for more jagged edge lines; probably never worth it.
 smooth.linear				= false;//true;	// Disabling gives significant speedup for subjective visual cost. It just adjusts gamma/
 							// luminosity. It does however help significantly with artefact masking in live footage.
-
 //smooth.mask.cover			= 88;	//99;	// Increasing this reduces artefacts at the cost of some smoothness. //Usable at 75-100
 					//^(75+100)/2=r^// <50 tends to be barely noticeable, stopping at 99 lessens issues with ext. sharpening.
 //smooth.mask.area			= 10;//70;//0;	// Artifact Masking seems never worth it; use 'smooth.algo' '21' or '23' instead.
 //smooth.mask.area_sharp		= 1.618; //1.0;	// Recommendations from the internet 1.2-1.65; Phi to phi is a good range; inconsistent.
-
 //smooth.scene.mode			= 0;	//3;	// Use 3=Adaptive or 0=Uniform Frames interpolation mode; don't bother with the rest.
 							// Adaptive mode seems to have a minor latency hit whenever it changes operating modes.
 //smooth.scene.force13			= true;
-//smooth.scene.luma			= 1;		// Should be lowered for Anime?... Yep... Test more later.
-//smooth.scene.blend			= false;
+//smooth.scene.luma			= 1;		// Should be lowered for Anime. Any drawbacks for Live? ...Still Needs more testing.
+//smooth.scene.blend			= false;	// Blurs the output, which hides artefacts, but also reduces benefits from interpolation.
   smooth.scene.limits.m1		= 1800;		// Random Tweaks from the internet. These 'm1' & 'm2' tweaks are meant to improve fluency, 
   smooth.scene.limits.m2		= 3600;		// .....		  but only apply to '3' a.k.a. Adaptive frames interpolation mode.
   smooth.scene.limits.scene		= 2220;	//2600;	// Triangulation approach points here:  2220 -> SweetSpot <- 2795	-	Good Pairs:
@@ -121,9 +124,9 @@ smooth.linear				= false;//true;	// Disabling gives significant speedup for subj
 					// ^(33+51)/2=^	// For Anime 40-44 works well with most values, also gives great results with live footage.
 					// Doesn't use	// Triangulation method indicates that 42 & 43 give far more flexibility with the .scene-
 					// decimals	// threshold than larger values, while lower values start having trouble with blurry frames.
-					// !!-->	// If you want to reduce artefacts in high motion scenes, at the cost of some smoothess,
+					// !Note! -->	// If you want to reduce artefacts in high motion scenes, at the cost of some smoothess,
 							// i would recommend limiting search distances instead of changing this value from 42.
-					// !!-->	// For tuning scene-change detection, i would recommend editing other .scene.limits instead.
+					// !Note! -->	// For tuning scene-change detection, i would recommend editing other scene.limits instead.
 	// Documentation - Only blocks reaching over:( ("block SAD"/"block average luma") > "limits.zero") threshold, qualify for triggering scene
 	//  Simplified	 - change when blocks with:( ("block SAD"/"block average luma") > "limits.scene") outnumber the "limits.blocks" percentage?
 
