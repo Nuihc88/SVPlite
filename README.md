@@ -21,7 +21,7 @@ For best performance i recommend using the latest 'PotPlayer' (PotPlayerMini.exe
 
 
 **Explanation about Script Versions:**
-* Animation-Presets: Are for content that consists primarily of flat 2D Animation.
+* Animated-Presets: Are for content that consists primarily of flat 2D Animation.
 * Mixed-Presets: Are for content that combines Live-action, Animation, CGI, VFX, 3D, etc.
 * Live-Presets: Are for content that consists primarily of Live-action footage.
 * Heavy-Presets: Are for general use with recent hardware or least demanding (old) file formats.
