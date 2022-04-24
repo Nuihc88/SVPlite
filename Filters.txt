@@ -1,14 +1,13 @@
 Below are links to filter versions i use myself and can recommend for use with SVPlite scripts, but due to legal reasons can't pre-package with SVPlite...
 Most of the time your choice of version won't matter much, but you could get slightly better performance or less overhead using the ones specified below:
 
-AviSynth+ r3600 v3.7.2 2022.01.13 test build:                           (Least overhead and latency)
-Original Link: https://drive.google.com/uc?export=download&id=1A2Jb2OSYzGI0tBFEmvlT0RxxLwVoCiP_
-Mirrored Link: http://k007.kiwi6.com/hotlink/smndk9flbl/AviSynthPlus_r3600_v3.7.2_test1_20220113.7z
+AviSynth+ shebang_mod v3.7.2 based build:                           (Least overhead and latency)
+Original Link: https://horman.net/avisynth/download/shebang_mod.zip
+Mirrored Link: https://web.archive.org/web/20220424210030/https://horman.net/avisynth/download/shebang_mod.zip
 OR
 AviSynth+ r3218 v3.5.2 2020.04.28 test build:              (Least likely to return incorrect frames)
 Original Link: https://drive.google.com/file/d/1EY1wgsh7pQD7kqj_2suD--nSj12hILX4/view
 Mirrored Link: http://k007.kiwi6.com/hotlink/o9ej7ll4sb/AviSynthPlus_r3218_v3.5.2_test_20200428_noarr.7z
- 
 
 SVPflow1.dll is from:
 32bit: https://web.archive.org/web/*/https://www.svp-team.com/files/repo/full/core.flow32/4.5.0.202plugins.7z
