@@ -12,7 +12,7 @@ vectors=SVAnalyse(super, analyse_params, src=last)
 #Prefetch(2,Ceil(frames/2)) # Dividing previous ones by 2 seems to be the performance sweet spot.
 #OnCPU(Ceil(cores)) # Above ones are fairly quick and don't need to have cores on standby.
 
-SVSmoothFps(last, super, vectors, smoothfps_params, mt=frames) # Sample scripts use 'threads' here, but using 'frames' seems to refill the buffer much quicker, i didn't notice any downsides.
+SVSmoothFps(last, super, vectors, smoothfps_params, mt=cores+1) # Sample scripts use 'threads' here, but using 'frames' refills the buffer much quicker in avisynth builds prior to v3.5.2, however then frames often get processed out of sequence and are sometimes skipped while rendering under very high system loads; thus cores+1 is optimal for lowest latency.
 #OnCPU(Ceil(threads)) # Above one is slower and needs cores on standby, especially with linear=true.
 
 
