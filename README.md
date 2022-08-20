@@ -4,7 +4,7 @@ SVPlite - Realtime-Optimized AviSynth+ Script-Templates for the SmoothVideo Proj
 Project Goal: Making SVPflow libraries more usable and accessible on older computers and portable video players.
 
 Project's Priorities are as follows:
-1. Latency - Minimizing buffer refill delays and making seek and frame drop recovery as fast and smooth as possible.
+1. Latency - Minimizing buffer refill delays and making seek & frame drop recovery as fast and smooth as possible.
 2. Quality - Balancing artefact reduction with playback smoothness, without noticeable compromises in either one.
 3. Speed   - Increasing throughput by making best possible use of available buffering techniques to avoid underruns.
 
