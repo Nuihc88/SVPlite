@@ -22,7 +22,7 @@ Nuihc88's configuration notes, based on override.js - from SVP 3.1.7a
 
 //analyse.vectors			= 3;		// Only change if you want to use the obsolete algo 1 and want a small speed boost.
   analyse.block.w			= 32;		// Keeping this high gives less 'windowblinds' artefacts than lower values.
-  analyse.block.h			= 16;	//32;	// Depending on block size and penalty values, halfing this can either cause or prevent 	
+  analyse.block.h			= 16;	//32;	// Depending on block size and penalty values, halfing this can either cause or prevent 								// artefacts, but makes camera movement much more visually pleasing.
 							// artefacts, but makes camera movement in live footage much more visually pleasing.
   analyse.block.overlap			= 2;	//0;	// Generally 2 gives least artefacts, but is much slower.
 							// Usually 1 has the worst quality with large block sizes.
@@ -67,8 +67,9 @@ Nuihc88's configuration notes, based on override.js - from SVP 3.1.7a
 // Derived distances:	3       9          15       21             33          39             51
 // Using fine to coarse search distance ratio of between 1:3 & 1:2 seems to produce most consistent quality; seems about as important as distance.
 
-  analyse.main.penalty.lambda		= 3.3//12.23;	// > increases Vector Coherence. < increases smoothness quite significantly.
-							// Not yet sure how to optimize it. < seems less unpredictable, but lowers effective range.
+nalyse.main.penalty.lambda		= 1.6//0.07;	// > increases Vector Coherence. < increases smoothness and reduces artefacts significantly.
+									//3.3//12.23	// < Is less unpredictable, but lowers effective search range without compensatory tunings.
+											// ~3.3 is good for Anime; ~0.07 is best for Live Action, but in between for Mixed content.
   analyse.main.penalty.plevel		= 1.25//1.371;	// < reduces Artefacts, > Improves Fluency. Has quite a few interconnected trade-offs.
 							// Seems to affect every other penalty along with lambda, which all affect search behavour.
 //analyse.main.penalty.lsad		= 8000;		// Is tied to block size, but beyond that i haven't found any consistency in it's behavior.
@@ -110,9 +111,9 @@ smooth.linear				= false;//true;	// Disabling gives significant speedup for subj
 //smooth.mask.area_sharp		= 1.618; //1.0;	// Recommendations from the internet 1.2-1.65; Phi to phi is a good range; inconsistent.
 //smooth.scene.mode			= 0;	//3;	// Use 3=Adaptive or 0=Uniform Frames interpolation mode; don't bother with the rest.
 							// Adaptive mode seems to have a minor latency hit whenever it changes operating modes.
-//smooth.scene.force13			= true;
-//smooth.scene.luma			= 1;		// Should be lowered for Anime. Any drawbacks for Live? ...Still Needs more testing.
-//smooth.scene.blend			= false;	// Blurs the output, which hides artefacts, but also reduces benefits from interpolation.
+//smooth.scene.force13			= true;		// Obsolete, does nothing?
+//smooth.scene.luma			= 1;//1.5	// Should be lowered for Anime. Any drawbacks for Live? ...Still Needs more testing.
+//smooth.scene.blend			= false;	// Blurs the output at scene-transitions, instead of repeating a frame, off is faster.
   smooth.scene.limits.m1		= 1800;		// Random Tweaks from the internet. These 'm1' & 'm2' tweaks are meant to improve fluency, 
   smooth.scene.limits.m2		= 3600;		// .....		  but only apply to '3' a.k.a. Adaptive frames interpolation mode.
   smooth.scene.limits.scene		= 2220;	//2600;	// Triangulation approach points here:  2220 -> SweetSpot <- 2795	-	Good Pairs:
