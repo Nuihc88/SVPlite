@@ -1,0 +1,3 @@
+Extra Performance Tweak #1: Make sure that everything in your filter chain is using the same colorspace eg. NV12;
+check LAV Filters, AviSynth Filter, Internal Video Transform Filters & any other video filters in your chain;
+confirm using your renderer's diagnostic output, one by one, that each filter is indeed outputting the right thing.
